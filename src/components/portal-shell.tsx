@@ -21,7 +21,7 @@ import {
 } from "@/lib/supabase-browser";
 
 const navigation = [
-  { href: "/tasks", label: "Daftar Pekerjaan", icon: CheckSquare2 },
+  { href: "/tasks", label: "Task", icon: CheckSquare2 },
   { href: "/chat", label: "Chat Room", icon: MessageCircle },
   { href: "/messages", label: "Chat Pribadi", icon: Mail },
   { href: "/profile", label: "Profile Saya", icon: UserRound },

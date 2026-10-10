@@ -18,7 +18,6 @@ import {
 import { createTask, deleteTask, updateTask } from "@/app/actions";
 import type { Task, TaskPosition, TaskStatus } from "@/lib/portal-types";
 import MemberProfilePopover from "@/components/member-profile-popover";
-import MemberTierBadge from "@/components/member-tier-badge";
 
 const statuses: { value: TaskStatus; label: string }[] = [
   { value: "belum_dikerjakan", label: "Belum dikerjakan" },
@@ -550,11 +549,8 @@ export default function TaskManager({
                               profile={task.creator_profile}
                               viewerId={currentUserId}
                             >
-                              <span className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-cyan-300/15 bg-cyan-300/[.08] px-2 py-1 font-medium text-cyan-100">
+                              <span className="rounded-full border border-cyan-300/15 bg-cyan-300/[.08] px-2 py-1 font-medium text-cyan-100">
                                 {task.creator_name ?? "Anda"}
-                                <MemberTierBadge
-                                  isAdmin={task.creator_profile.is_admin}
-                                />
                               </span>
                             </MemberProfilePopover>
                           )}

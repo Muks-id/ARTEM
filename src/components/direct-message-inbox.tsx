@@ -18,7 +18,6 @@ import {
   setSupabaseBrowserAccessTokenProvider,
 } from "@/lib/supabase-browser";
 import type { DirectConversationSummary } from "@/lib/portal-types";
-import MemberTierBadge from "@/components/member-tier-badge";
 
 export default function DirectMessageInbox({
   initialConversations,
@@ -193,13 +192,10 @@ export default function DirectMessageInbox({
                 avatar={conversation.other_member.avatar_url}
               />
               <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <div>
                   <span className="truncate text-sm font-semibold text-slate-100">
                     {conversation.other_member.full_name}
                   </span>
-                  <MemberTierBadge
-                    isAdmin={conversation.other_member.is_admin}
-                  />
                 </div>
                 <div className="mt-1 block truncate text-xs text-slate-400">
                   {conversation.latest_message

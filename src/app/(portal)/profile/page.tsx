@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import ProfileEditor from "@/components/profile-editor";
-import { createSupabaseServerClient, isAdminUser } from "@/lib/supabase";
+import { createSupabaseServerClient } from "@/lib/supabase";
 import type { Profile, ProfileFile, TaskStatus } from "@/lib/portal-types";
 
 export default async function ProfilePage() {
@@ -45,7 +45,6 @@ export default async function ProfilePage() {
     <ProfileEditor
       profile={profile as Profile}
       counts={counts}
-      tier={isAdminUser(userId) ? "Yang Mulia" : "Rakyat Jelata"}
       initialPersonalFiles={(personalFiles ?? []) as ProfileFile[]}
     />
   );

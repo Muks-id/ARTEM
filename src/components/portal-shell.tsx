@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 import type { Profile } from "@/lib/portal-types";
 import { cn } from "@/lib/utils";
 import MemberProfilePopover from "@/components/member-profile-popover";
-import MemberTierBadge from "@/components/member-tier-badge";
 import {
   createSupabaseBrowserClient,
   setSupabaseBrowserAccessTokenProvider,
@@ -194,7 +193,6 @@ export default function PortalShell({
                 >
                   <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-200">
                     {profile.full_name}
-                    <MemberTierBadge isAdmin={isAdmin} />
                   </span>
                 </MemberProfilePopover>
                 <div className="text-xs text-slate-500">

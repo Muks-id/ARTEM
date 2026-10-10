@@ -4,7 +4,6 @@ import { useState } from "react";
 import { LoaderCircle, MessageCircleReply, SmilePlus, Trash2 } from "lucide-react";
 import type { ChatMessage, MessageReaction } from "@/lib/portal-types";
 import MemberProfilePopover from "@/components/member-profile-popover";
-import MemberTierBadge from "@/components/member-tier-badge";
 import ChatPhotoAttachment from "@/components/chat-photo-attachment";
 
 const reactionChoices = ["👍", "❤️", "😂", "🎉", "👏", "🔥"];
@@ -52,11 +51,7 @@ export default function ChatMessageBubble({
         avatar={message.sender.avatar_url}
       />
       <article
-        className={`chat-glass-bubble relative min-w-0 max-w-[min(82%,38rem)] rounded-[26px] px-4 py-3.5 text-left sm:px-5 ${
-          message.sender.is_admin
-            ? "chat-glass-bubble-admin"
-            : "chat-glass-bubble-member"
-        }`}
+        className="chat-glass-bubble relative min-w-0 max-w-[min(82%,38rem)] rounded-[26px] px-4 py-3.5 text-left sm:px-5"
       >
         <div className="relative z-[1]">
           <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
@@ -68,7 +63,6 @@ export default function ChatMessageBubble({
                 {message.sender.full_name}
               </span>
             </MemberProfilePopover>
-            <MemberTierBadge isAdmin={message.sender.is_admin} />
           </div>
 
           {message.reply_to && (
@@ -81,10 +75,6 @@ export default function ChatMessageBubble({
                   {message.reply_to.sender.full_name}
                 </span>
               </MemberProfilePopover>
-              <MemberTierBadge
-                isAdmin={message.reply_to.sender.is_admin}
-                className="ml-1 align-middle"
-              />
               <p className="mt-0.5 line-clamp-2 break-words text-xs text-slate-300">
                 {message.reply_to.content}
               </p>

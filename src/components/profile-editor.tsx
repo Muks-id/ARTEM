@@ -23,18 +23,15 @@ import {
   uploadProfilePhoto,
 } from "@/app/actions";
 import type { Profile, ProfileFile, TaskStatus } from "@/lib/portal-types";
-import MemberTierBadge from "@/components/member-tier-badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function ProfileEditor({
   profile,
   counts,
-  tier,
   initialPersonalFiles,
 }: {
   profile: Profile;
   counts: Record<TaskStatus, number>;
-  tier: "Yang Mulia" | "Rakyat Jelata";
   initialPersonalFiles: ProfileFile[];
 }) {
   const [fullName, setFullName] = useState(profile.full_name);
@@ -188,12 +185,8 @@ export default function ProfileEditor({
             )}
             <div className="flex flex-wrap items-end justify-between gap-4 pb-1 sm:flex-1">
               <div className="rounded-2xl border border-cyan-300/20 bg-gradient-to-br from-cyan-300/[.1] to-blue-400/[.06] px-4 py-3">
-                <div className="flex flex-wrap items-center gap-2">
+                <div>
                   <h2 className="text-lg font-semibold text-cyan-50">{fullName}</h2>
-                  <MemberTierBadge
-                    isAdmin={tier === "Yang Mulia"}
-                    className="uppercase tracking-wide"
-                  />
                 </div>
                 <div className="mt-1 text-sm text-blue-200">
                   {username ? `@${username.replace(/^@/, "")}` : "Username belum diatur"}
@@ -333,7 +326,7 @@ export default function ProfileEditor({
           <div>
             <h2 className="font-semibold">File pribadi</h2>
             <p className="mt-1 text-sm text-slate-500">
-              PDF atau foto, maksimal 4 MB per file.
+              PDF atau foto, maksimal 10 MB per file.
             </p>
           </div>
           <label className="inline-flex h-10 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg bg-cyan-400 px-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 has-[:disabled]:cursor-wait has-[:disabled]:opacity-50">

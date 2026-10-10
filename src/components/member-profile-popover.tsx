@@ -7,7 +7,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import type { MemberProfileSummary } from "@/lib/portal-types";
-import MemberTierBadge from "@/components/member-tier-badge";
 import Link from "next/link";
 
 export default function MemberProfilePopover({
@@ -63,11 +62,10 @@ export default function MemberProfilePopover({
                 initials={initials}
               />
             </div>
-            <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1">
+            <div className="mt-3">
               <h3 className="truncate text-base font-semibold">
                 {profile.full_name}
               </h3>
-              <MemberTierBadge isAdmin={profile.is_admin} />
             </div>
             <p className="mt-0.5 text-sm text-cyan-200/80">
               {profile.username ? `@${profile.username}` : "Username belum diatur"}

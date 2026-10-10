@@ -6,7 +6,6 @@ import { deleteTask } from "@/app/actions";
 import type { Task, TaskStatus } from "@/lib/portal-types";
 import type { MemberProfileSummary } from "@/lib/portal-types";
 import MemberProfilePopover from "@/components/member-profile-popover";
-import MemberTierBadge from "@/components/member-tier-badge";
 
 type AdminTask = Task & {
   ownerName: string;
@@ -165,9 +164,8 @@ export default function AdminTaskManager({
                       profile={task.ownerProfile}
                       viewerId={currentUserId}
                     >
-                      <span className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-cyan-300/15 bg-cyan-300/[.08] px-2.5 py-1 font-medium text-cyan-100">
+                      <span className="rounded-full border border-cyan-300/15 bg-cyan-300/[.08] px-2.5 py-1 font-medium text-cyan-100">
                         {task.ownerName}
-                        <MemberTierBadge isAdmin={task.ownerProfile.is_admin} />
                       </span>
                     </MemberProfilePopover>
                     <span>· {task.ownerEmail}</span>

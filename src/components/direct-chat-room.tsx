@@ -20,7 +20,6 @@ import {
 } from "@/app/actions";
 import ChatComposerTools from "@/components/chat-composer-tools";
 import ChatPhotoAttachment from "@/components/chat-photo-attachment";
-import MemberTierBadge from "@/components/member-tier-badge";
 import {
   createSupabaseBrowserClient,
   setSupabaseBrowserAccessTokenProvider,
@@ -401,7 +400,6 @@ export default function DirectChatRoom({
             <span className="truncate text-base font-semibold text-slate-100">
               {otherMember.full_name}
             </span>
-            <MemberTierBadge isAdmin={otherMember.is_admin} />
           </div>
           <div className="mt-0.5 flex items-center gap-1.5 text-xs text-slate-500">
             <span
@@ -455,20 +453,13 @@ export default function DirectChatRoom({
                       avatar={message.sender.avatar_url}
                     />
                     <article
-                      className={`chat-glass-bubble relative min-w-0 max-w-[min(82%,38rem)] rounded-[26px] px-4 py-3.5 text-left sm:px-5 ${
-                        message.sender.is_admin
-                          ? "chat-glass-bubble-admin"
-                          : "chat-glass-bubble-member"
-                      }`}
+                      className="chat-glass-bubble relative min-w-0 max-w-[min(82%,38rem)] rounded-[26px] px-4 py-3.5 text-left sm:px-5"
                     >
                       <div className="relative z-[1]">
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="text-sm font-semibold text-slate-100">
                             {message.sender.full_name}
                           </span>
-                          <MemberTierBadge
-                            isAdmin={message.sender.is_admin}
-                          />
                         </div>
                         {message.reply_to && (
                           <div className="mt-2 rounded-xl border-l-2 border-sky-300/60 bg-black/20 px-3 py-2">

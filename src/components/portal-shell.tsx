@@ -1,6 +1,7 @@
 "use client";
 
 import { UserButton, useAuth } from "@clerk/nextjs";
+import Image from "next/image";
 import {
   CheckSquare2,
   MessageCircle,
@@ -268,11 +269,13 @@ export default function PortalShell({
 function Brand({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/tasks" className="flex items-center gap-3">
-      <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-300 to-blue-500 text-slate-950 shadow-lg shadow-blue-500/20">
-        <span aria-hidden="true" className="text-2xl leading-none">
-          🤙
-        </span>
-      </span>
+      <Image
+        src="/Asset 3.png"
+        alt="Logo Artem Geng"
+        width={40}
+        height={40}
+        className="size-10 rounded-xl bg-white object-contain shadow-lg shadow-blue-500/20"
+      />
       <span className={cn("font-semibold tracking-tight", compact && "text-sm")}>
         Artem <span className="text-cyan-300">Geng</span>
       </span>
